@@ -22,7 +22,7 @@
          <main>
              
              <firgure>
-                 <img scr="/366/projects/personalportfolio/img/juan_doe.png" alt="Picture of Juan Doe"/>
+                 <img scr="/w/projects/personalportfolio/img/juan_doe.png" alt="Picture of Juan Doe"/>
              </figure>
              
              <div>
