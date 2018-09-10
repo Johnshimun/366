@@ -21,9 +21,9 @@
          
          <main>
              
-             <firgure>
-                 <img scr="/w/projects/personalportfolio/img/juan_doe.png" alt="Picture of Juan Doe"/>
-             </figure>
+                 <firgure>
+                    <img scr="/w/projects/personalportfolio/img/juan_doe.png"alt="Picture of Juan Doe">
+                 </firgure>
              
              <div>
                  Hello!<br/>

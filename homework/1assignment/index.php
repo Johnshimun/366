@@ -24,7 +24,7 @@
          
          <main>
               <!-- Modify this line of code with the correct source attribute -->
-        <img src="../img/birds/cockatiel.jpg">
+        <img src="/w/homework/1assignment/img/amos_orangutan-940x626.jpg">
              
              <firgure>
                  
