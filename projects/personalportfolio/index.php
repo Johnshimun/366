@@ -21,14 +21,14 @@
          
          <main>
              
-                 <firgure>
-                    <img scr="/w/projects/personalportfolio/img/juan_doe.png"alt="Picture of Juan Doe">
-                 </firgure>
+                 
+                    <img scr=/w/projects/personalportfolio/img/juan_doe.png alt="Picture of Juan Doe">
+                 
              
-             <div>
-                 Hello!<br/>
-                 <p> Thank you for visiting my Proffesional Portfolio Website<p/>
-                 <p> I am a Software Engineer and have been recently hired at the Acme Corperation.</p>
+             <div, align=right>
+                <p>  Hello!</p>
+                 <p> Thank you for visiting my Proffesional Portfolio Website<p/><br>
+                 <p> I am a Software Engineer and have been recently hired at the Acme Corperation.</p><br>
                  <p> Feel free to contact me! </P>
                  <br /> <br />
                  <em>"With ordinary talent and extraordinary
