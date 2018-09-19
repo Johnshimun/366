@@ -2,10 +2,14 @@
 <html>
     <head>
         <title> 777 Slot Machine </title>
+             <styles>
+               @import url("css/styles.css");
+            </styles> 
+             /* adding styles makes everything red. Line 50 doesn't want to cooperate, may be because .DS store wont upload, left off at pg 14 */
     </head>
     <body>
         
-      
+        
         
         
         <?php
@@ -67,7 +71,7 @@
             ${"randomValue" . $i } = rand(0,2);
             displaySymbol(${"randomValue" . $i} );
             displayPoints($randomValue1, $randomValue2, $randomValue3);
-    } */
+    } 
        
         }      
         
@@ -79,6 +83,6 @@
         <form>
             <input type="submit" value="Spin!"/>
         </form>
-    </div>
+    </div> */
     </body>
 </html>
