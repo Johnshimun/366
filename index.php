@@ -5,7 +5,7 @@
     </head>
     <body>
         <div>
-            <a "/w/homework/1assignment/index.php">Lab 2</a>
+            <a "https://ide.c9.io/jshimun/helloworldjohn/w/homework/1assignment/index.php">Assignment1</a>
         </div>
 
     </body>
