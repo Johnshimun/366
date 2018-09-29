@@ -5,7 +5,7 @@
     </head>
     <body>
         <div>
-            <a href="./homework/777/index.php">Lab 2</a>
+            <a "/w/homework/1assignment/index.php">Lab 2</a>
         </div>
 
     </body>
