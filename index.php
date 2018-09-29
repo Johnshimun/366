@@ -5,7 +5,9 @@
     </head>
     <body>
         <div>
-            <a href="https://ide.c9.io/jshimun/helloworldjohn/w/homework/1assignment/index.php">Assignment1</a>
+            <a href="./homework/777/index.php">Lab 2</a>
+            <a href="./homework/1assignment/index.php">assign1</a>
+            <a href="./homework/Homework1/index.html">hmwk1</a>
         </div>
 
     </body>
