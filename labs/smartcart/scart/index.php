@@ -1,29 +1,38 @@
 <?php
-include 'functions.php';
+    include 'functions.php';
+    // include 'database.php';
    
-session_start();
-if(!isset($_SESSION['cart'])){
-   $_SESSION['cart'] = array();
-}
-if(isset($_POST['itemName'])){
-   $newItem = array();
-   $newItem['name'] = $_POST['itemName'];
-   $newItem['id'] = $_POST['itemId'];
-   $newItem['price'] = $_POST['itemPrice'];
-   $newItem['image'] = $_POST['itemImage'];
-   
-   foreach($_SESSION['cart'] as &$item){
-       if ($newItem['id'] ==  $item['id']){
-           $item['quantity'] += 1;
-           $found = true;
-       }
-   }
-   
-   if($found != true){
-       $newItem['quantity'] = 1;
-       array_push($_SESSION['cart'], $newItem);
-   }
-}
+    session_start();
+    
+        if(!isset($_SESSION['cart'])){
+          $_SESSION['cart'] = array();
+        }
+        
+        if(isset($_GET['query'])){
+            include 'wmapi.php';
+            $items = getProducts($_GET['query']);
+        
+        }
+        
+        if(isset($_POST['itemName'])) {
+          $newItem = array();
+          $newItem['name'] = $_POST['itemName'];
+          $newItem['price'] = $_POST['itemPrice'];
+          $newItem['img'] = $_POST['itemImg'];
+          $newItem['id'] = $_POST['itemId'];
+           
+          foreach($_SESSION['cart'] as &$item){
+              if ($newItem['id'] ==  $item['id']){
+                  $item['quantity'] += 1;
+                  $found = true;
+              }
+          }
+           
+          if($found != true){
+              $newItem['quantity'] = 1;
+              array_push($_SESSION['cart'], $newItem);
+          }
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,27 +68,26 @@ if(isset($_POST['itemName'])){
                 <div class="form-group">
                     <label for="pName">Product Name</label>
                     <input type="text" class="form-control" name="query" id="pName" placeholder="Name">
-                    <!--<select name="category">-->
+                    </div>
                     
-                    </select>
+                    <div align="left">
                     <br/>
-                    Price:  
-                    From: <input type="text" name="pfrom" />
+                    Prices: </br> 
+                    From: <input type="text" name="pfrom" /> <br/>
                     To: <input type="text" name="pto" />
                     <br/>
-                    Ordering by: 
+                    Results: <br/>
+                    <input type="radio" name="ordering" value="product"> Product <br/>
                     <input type="radio" name="ordering" value="price"> Price
-                    <input type="radio" name="ordering" value="product"> Product 
-                    
-                    <br/>
-                    <input name="show-images" type="checkbox"> Click to show images
+                    <input name="images" type="checkbox"> Click for Images
                 </div>
-                <input type="submit" name="search-submitted" value="Submit" class="btn btn-default">
+                <input type="submit" value="Submit" class="btn btn-default">
                 <br /><br />
             </form>
             
-            <?php
-            $category = '';
+             <?php
+             
+             $category = '';
             $query = '';
             $ordering = '';
             $pFrom = '';
@@ -114,4 +122,4 @@ if(isset($_POST['itemName'])){
         </div>
     </div>
     </body>
-</html>
+</html> 

@@ -2,22 +2,24 @@
 <?php
 include 'functions.php';
 session_start();
-//If 'removeId' has been sent, search the cart for that itemId and unset it
-if(isset($_POST['removeId'])) {
-    foreach($_SESSION['cart'] as $itemKey => $item) {
-        if($item['id'] == $_POST['removeId']) {
-            unset($_SESSION['cart'][$itemKey]);
+
+    //If 'removeId' has been sent, search the cart for that itemId and unset it
+    if(isset($_POST['removeId'])) {
+        foreach($_SESSION['cart'] as $itemKey => $item) {
+            if($item['id'] == $_POST['removeId']) {
+                unset($_SESSION['cart'][$itemKey]);
+            }
         }
     }
-}
-//If 'itemId' quantity has been sent, search for the item with that ID and update quantity
-if(isset($_POST['itemId'])) {
-    foreach($_SESSION['cart'] as &$item) {
-        if($item['id'] == $_POST['itemId']) {
-            $item['quantity'] = $_POST['update'];
+    
+    //If 'itemId' quantity has been sent, search for the item with that ID and update quantity
+    if(isset($_POST['itemId'])) {
+        foreach($_SESSION['cart'] as &$item) {
+            if($item['id'] == $_POST['itemId']) {
+                $item['quantity'] = $_POST['update'];
+            }
         }
     }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +40,7 @@ if(isset($_POST['itemId'])) {
                 <nav class='navbar navbar-default - navbar-fixed-top'>
                     <div class='container-fluid'>
                         <div class='navbar-header'>
-                            <a class='navbar-brand' href='#'>Shop Smart S-mart</a>
+                            <a class='navbar-brand' href='#'>Shop smart S-mart</a>
                         </div>
                         <ul class='nav navbar-nav'>
                             <li><a href='index.php'>Home</a></li>
@@ -50,10 +52,9 @@ if(isset($_POST['itemId'])) {
                 </nav>
                 <br /> <br /> <br />
                 <h2>Shopping Cart</h2>
+                
                 <!-- Cart Items -->
-                <?php
-                    displayCart();
-                ?>
+                <?php displayCart(); ?>
             </div>
         </div>
     </body>
