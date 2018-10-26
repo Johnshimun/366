@@ -10,6 +10,7 @@
             <a href="./homework/Homework1/index.html">hmwk1</a>
             <a href="./homework/Slider/index.php">Carousel</a>
             <a href="./labs/smartcart/scart/index.php">scart</a>
+           <a href=". /w/meme_lab/meme.php">meme</a>
         </div>
  Random number: <?php
 echo $_SESSION['RandomVal'] ?>
