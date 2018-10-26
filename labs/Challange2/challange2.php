@@ -45,11 +45,14 @@ if(isset($_POST['guess'])) {
 <html>
     <head></head>
     <body>
-        Random number: <?php
-echo $_SESSION['RandomVal'] ?>
-        <form method = "POST">
-            <input type="text" name = "guess" value="Enter Guess"> </input>
-            <input type="submit" name = "destroy" value="Start Over"> </input>
+         <form method = "post">
+        Guess the number: <input type="text" name = "guess"> </input>
+        <input type ="submit" name="guess-btn"  value="Submit"></input>
+          </form>
+          <?php printHistory(); ?>
+            
+         <form method = "post">          
+         <input type="submit" name = "destroy" value="Start Over"> </input>
         </form>
     </body>
 </html>

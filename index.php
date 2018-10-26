@@ -11,6 +11,12 @@
             <a href="./homework/Slider/index.php">Carousel</a>
             <a href="./labs/smartcart/scart/index.php">scart</a>
         </div>
+ Random number: <?php
+echo $_SESSION['RandomVal'] ?>
+        <form method = "POST">
+            <input type="text" name = "guess" value="Enter Guess"> </input>
+            <input type="submit" name = "destroy" value="Start Over"> </input>
+        </form>
 
     </body>
 </html>
