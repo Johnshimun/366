@@ -10,7 +10,7 @@ function getDatabaseConnection() {
         $dbname = "meme_lab"; 
     } else {
         //running on Horuku
-          $host = "us-cdbr-iron-east-01.cleardb.net";
+        $host = "us-cdbr-iron-east-01.cleardb.net";
         $username = "bc3d230aa817a7";
         $password = "3d4dd0a1";
         $dbname = "heroku_3a70e5aeb322909";
