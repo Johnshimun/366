@@ -11,6 +11,7 @@
             <a href="./homework/Slider/index.php">Carousel</a>
             <a href="./labs/smartcart/scart/index.php">scart</a>
             <a href="./meme_lab/meme.php">meme</a>
+            <a href="./meme_v2/index.php">meme_v2</a>
         </div>
  Random number: <?php
 echo $_SESSION['RandomVal'] ?>
