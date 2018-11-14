@@ -1,5 +1,5 @@
 #won, #letters{
-    display: none;
+    padding: 20px 0px;
 }
 
 #man  {
@@ -17,7 +17,7 @@
 
 
 .hint {
-    font-size: 0.3em !important;
+    font-size: 0.6em !important;
 }
 
 .btn {

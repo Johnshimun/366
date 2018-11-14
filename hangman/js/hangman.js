@@ -1,9 +1,9 @@
 //Variables
-var selectedHint = "";
 var selectedWord = "";
+var selectedHint = "";
 var board = [];
-var hintDisplay = false;
 var remainingGuesses = 6;
+var hintDisplay = false;
 var words = [{ word: "snake", hint: "It's a reptile"},
              { word: "monkey", hint: "It's a mammal"},
              { word: "beetle", hint: "It's an insect"}];
@@ -46,7 +46,9 @@ function startGame()
     initBoard();
     createLetters();
     updateBoard();
+ console.log("instart");
 }
+
 
 function pickWord()
 {
@@ -58,11 +60,13 @@ function pickWord()
 //Create the letters inside the letters div
 function createLetters()
 {
-    for(var letter of alphabet)
-    {
+    for(var letter of alphabet){
+        console.log("print letter:", letter);
         $("#letters").append("<button class='letter' id='" + letter + "'>" + letter + "</button>");
     }
 }
+
+
 function initBoard()
 {
     for (var letter in selectedWord)
@@ -70,6 +74,7 @@ function initBoard()
         board.push("_");
     }
 }
+
 
 function updateBoard(){
     $("#word").empty();
@@ -79,8 +84,10 @@ function updateBoard(){
     }
     
     $("#word").append("<br />");
-  //  $("#word").append("<span class= 'hint'> Hint: + selectedHint + "</span>");
+    //$("#word").append("<span class= 'hint'> Hint: "+ selectedHint + "</span>");
 }
+
+
 
 //update the current word themn calls for a board update
 function updateWord(positions, letter)
@@ -90,11 +97,12 @@ function updateWord(positions, letter)
     }
     updateBoard();
 }
+
+
 function checkLetter(letter)
 {
     var positions = new Array();
-    for(var i = 0; i < selectedWord.length; i++)
-    {
+    for(var i = 0; i < selectedWord.length; i++) {
         if(letter == selectedWord[i]){
             positions.push(i);
         }
@@ -117,16 +125,18 @@ function checkLetter(letter)
         endGame(false);
     }
 }
+
 function updateMan()
 {
     $("#hangImg").attr("src", "img/stick_" + (6 - remainingGuesses) + ".png");
 }
+
+
 function endGame(win)
 {
     $("#letters").hide();
     
-    if(win)
-    {
+    if(win) {
         $('#won').show();
     
     }
@@ -135,6 +145,8 @@ function endGame(win)
         $('#lost').show();
     }
 }
+
+
 function disableButton(btn)
 {
     btn.prop("disabled", true);
