@@ -12,6 +12,7 @@
             <a href="./labs/smartcart/scart/index.php">scart</a>
             <a href="./meme_lab/meme.php">meme</a>
             <a href="./meme_v2/index.php">meme_v2</a>
+            <a href="./hangman/index.html">Hangman</a>
         </div>
  Random number: <?php
 echo $_SESSION['RandomVal'] ?>
