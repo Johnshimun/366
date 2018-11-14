@@ -1,7 +1,9 @@
 #won, #letters{
     padding: 20px 0px;
 }
-
+#won, #lost{
+    display: none;
+}
 #man  {
     margin: 20px auto;
     width: 600px;
