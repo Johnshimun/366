@@ -13,6 +13,7 @@
             <a href="./meme_lab/meme.php">meme</a>
             <a href="./meme_v2/index.php">meme_v2</a>
             <a href="./hangman/index.html">Hangman</a>
+            <a href="./IQ.2/index.html">IQ_Test</a>
         </div>
  Random number: <?php
 echo $_SESSION['RandomVal'] ?>
