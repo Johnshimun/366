@@ -13,26 +13,31 @@
     </head>
     
    <header>  <div style="font-size:large;"> <h1>County info</h1></div> </header>
-<form>
-   Username: <input type="text" id="username" /> 
-   <span style="color:red" id="usernameValidation"></span>  <br /><br />
-   
-   Password: <input type="text" id="Password" /> 
-   
-   ComfirmPassword: <input type="text" id="ComfirmPassword" /> 
-   <span style="color:red" id="passwordValidation"></span>  <br /><br />
-   
-    State: <input type="text" id="state"><br /><br />
-        
-    County: <input type="text" id="County"><br /><br />
-        
-    Zipcode: <input type="text" id="zipcode"><br />
-        <br>
-   <button type="button" id"submit">Sign Up</button>
-</form>
+
 <body>
     
-     
+    <form>
+       Username: <input type="text" id="username" /> 
+       <span style="color:red" id="usernameValidation"></span>  <br /><br />
+       
+       Password: <input type="text" id="Password" /> 
+       
+       ComfirmPassword: <input type="text" id="ComfirmPassword" /> 
+       <span style="color:red" id="passwordValidation"></span>  <br /><br />
+       
+        State: <input type="text" id="state"><br /><br />
+            
+        County: 
+        <select id="county">
+            <option value="">Select ...</option>
+        </select>
+            
+        Zipcode: <input type="text" id="zipcode"><br />
+            <br>
+       <button type="button" id="submit">Sign Up</button>
+    </form>
+    
+    <div id="show"></div>
         
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
     crossorigin="anonymous"
@@ -62,10 +67,10 @@
                 });
             
             $("#submit").click(function() {
-                if ($("#password").val() == "" || $("#ConfirmPassword").val() == ""){
+                if ($("#Password").val() == "" || $("#ConfirmPassword").val() == ""){
                                 $("#passwordValidation").html("Type in password"); 
-                                $("#passwordValidation").css("color","yellow");
-                }else if ($("#password").val() == $("#ComfirmPassword").val()) {
+                                $("#passwordValidation").css("color","red");
+                }else if ($("#Password").val() == $("#ComfirmPassword").val()) {
                                 $("#passwordValidation").html("passwords match!"); 
                                 $("#passwordValidation").css("color","green");
                 }else {
@@ -79,23 +84,28 @@
              $("#state").change(function() {
                     $.ajax({
                     type: "GET",
-                    url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php",
+                    // url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php",0
+                    url: "http://itcdland.csumb.edu/~milara/ajax/countyList.php",
                     dataType: "json",
                     data: { "state": $("#state").val() },
-                        success: function(data,status) {
+                    success: function(data,status) {
                         console.log(data);
                         $("#county").html("<option> Select One </option>");
-                        for (var i=0; i< data['counties'].length; i++){
-                         $("#county").append("<option>" + data["counties"][i].county + "</option>" );
-                            }
-                        },
+                        console.log("hello")
+                        console.log(data.length)
+                        for(var i=0; i < data.length; i++) {
+                            console.log("were in the for loop");
+                            console.log(i + ":" + data[i].county);
+                            $("#county").append("<option>" + data[i].county + "</option>" );
+                        }
+                    },
                     complete: function(data,status) { //optional, used for debugging purposes
                     }
                 });
             });
          });
            
-             $("#zipcode").change(function(e) {
+             $("#zipcode").change(function() {
                 $.ajax({
                 type: "GET",
                 url: "http://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php", 
@@ -104,13 +114,14 @@
                     success: function(data,status) {
                     console.log(data);
                         if (data != false) {
-                            $("#state").html("value=" + data["2"]);
-                            $("#county").html("<option>" + data["county"] + "</option>");
+                            console.log("We made it into the if")
+                            $("#state").val(data.state);
+                            $("#county").html("<option>" + data.county + "</option>");
                             $("#show").html(
                             "<br>" +
-                            "City: " + data["1"] + "<br>" +
-                            "Latitude: " + data["latitude"] + "<br>" +
-                            "Longitude: " + data["longitude"] + "<br>");
+                            "City: " + data.city + "<br>" +
+                            "Latitude: " + data.latitude + "<br>" +
+                            "Longitude: " + data.longitude + "<br>");
                         }else {
                             $("#show").html("The zipcode does not exist.");
                         }
