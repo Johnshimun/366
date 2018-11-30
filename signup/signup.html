@@ -1,3 +1,4 @@
+ <!DOCTYPE html>
  <html>
 
     <head>
@@ -43,7 +44,7 @@
          function Element() {
             var x = document.getElementById("password");
             var y = document.getElementById("ComfirmPassword");
-            if (x.type === "password" || y.type === "ComfirmPassword") {
+            if (x.type == "password" || y.type == "ComfirmPassword") {
                 x.type = "text";
                 y.type = "text";
             } else {
@@ -53,7 +54,7 @@
         }
              $( document ).ready(function() {
                   $("#submit").click(function() {
-                    $.ajax({
+                        $.ajax({
                         type: "get",
                         url: "usernameLookup.php",
                         data: { "username": $("#username").val()},
@@ -73,18 +74,37 @@
             
             $("#submit").click(function() {
                 if ($("#password").val() == "" || $("#ConfirmPassword").val() == ""){
-                                 $("#passwordValidation").html("Type in password"); 
+                                $("#passwordValidation").html("Type in password"); 
                                 $("#passwordValidation").css("color","yellow");
-                 }else if ($("#password").val() == $("#ComfirmPassword").val()) {
+                }else if ($("#password").val() == $("#ComfirmPassword").val()) {
                                 $("#passwordValidation").html("passwords match!"); 
                                 $("#passwordValidation").css("color","green");
-                            }else {
+                }else {
                                 $("#passwordValidation").html("passwords don't match");         
                                 $("#passwordValidation").css("color","red");
                             }
                
                             
             });
+            
+             $("#state").change(function() {
+                    $.ajax({
+                    type: "GET",
+                    url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php",
+                    dataType: "json",
+                    data: { "state": $("#state").val() },
+                        success: function(data,status) {
+                        console.log(data);
+                        $("#county").html("<option> Select One </option>");
+                        for (var i=0; i< data['counties'].length; i++){
+                         $("#county").append("<option>" + data["counties"][i].county + "</option>" );
+                            }
+                        },
+                    complete: function(data,status) { //optional, used for debugging purposes
+                    }
+                });
+            });
+         });
            
              $("#zipcode").change(function(e) {
                 $.ajax({
@@ -113,24 +133,7 @@
        
               });    
               
-                $("#state").change(function() {
-                    $.ajax({
-                    type: "GET",
-                    url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php",
-                    dataType: "json",
-                    data: { "state": $("#state").val() },
-                        success: function(data,status) {
-                        console.log(data);
-                        $("#county").html("<option> Select One </option>");
-                        for (var i=0; i< data['counties'].length; i++){
-                         $("#county").append("<option>" + data["counties"][i].county + "</option>" );
-                            }
-                        },
-                    complete: function(data,status) { //optional, used for debugging purposes
-                    }
-                });
-            });
-         });
+               
 
 
             </script>
