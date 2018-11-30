@@ -24,7 +24,7 @@
    
     State: <input type="text" id="state"><br /><br />
         
-    County: <input type="text" id="zipcode"><br /><br />
+    County: <input type="text" id="County"><br /><br />
         
     Zipcode: <input type="text" id="zipcode"><br />
         <br>
@@ -40,18 +40,7 @@
     </script>
         <script>
         
-        //https://www.w3schools.com/jsref/prop_password_value.asp
-         function Element() {
-            var x = document.getElementById("password");
-            var y = document.getElementById("ComfirmPassword");
-            if (x.type == "password" || y.type == "ComfirmPassword") {
-                x.type = "text";
-                y.type = "text";
-            } else {
-                x.type = "password";
-                y.type = "password";
-            }
-        }
+    
              $( document ).ready(function() {
                   $("#submit").click(function() {
                         $.ajax({
