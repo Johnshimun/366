@@ -1,0 +1,74 @@
+ <html>
+
+    <head>
+        <title> </title>
+<form>
+   Username: <input type="text" id="username" /> 
+   <span style="color:red" id="usernameValidation"></span>  <br />
+   Password: <input type="text" id="Password" /> 
+   ComfirmPassword: <input type="text" id="ComfirmPassword" /> 
+   <span style="color:red" id="passwordValidation"></span>  <br />
+   <button type="button" id"submit">Sign Up</button>
+</form>
+<body>
+    
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    crossorigin="anonymous"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+    </script>
+        <script>
+            $(document).ready(function() {
+                $("#submit").click(function() {
+                   //alert($(this).val()); //showing the username entered, for testing purposes
+                    $.ajax({
+                        type: "get",
+                        url: "usernameLookup.php",
+                        data: { "username": $(this).val()},
+                       success: function(data,status) {
+                            if (data == "Available") {
+                                $("#usernameValidation").html("Available!"); 
+                                $("#usernameValidation").css("color","green");
+                            }else {
+                                $("#usernameValidation").html("Username already taken!");         
+                                $("#usernameValidation").css("color","red");
+                            }
+                       }  
+                    });
+                });
+            $("#submit").click(function() {
+                if ($("#password").val() == "" || $("#ConfirmPassword").val() == ""){
+                                 $("#passwordValidation").html("Type in password"); 
+                                $("#passwordValidation").css("color","yellow");
+                 }else if ($("#password").val() == $("#ComfirmPassword").val()) {
+                                $("#passwordValidation").html("passowrds match!"); 
+                                $("#passwordValidation").css("color","green");
+                            }else {
+                                $("#passwordValidation").html("passwords don't match");         
+                                $("#passwordValidation").css("color","red");
+                            }
+            });
+           
+            $("#zipcode").change(function() {
+                $.ajax({
+            type: "get",
+            url: "http://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php",
+            dataType: "json",
+            data: { "zip": $("#zipcode").val() },
+            success: function(data,status) { 
+                console.log(data);
+                 alert(data);
+                 if (data != false){
+                     $("#state")
+                 }
+              },
+              complete: function(data,status) { //optional, used for debugging purposes
+                  //alert(status);
+              }
+              });    
+         });
+}
+
+            </script>
+        </body>
+    </head>
+</html>
