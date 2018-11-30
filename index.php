@@ -14,6 +14,8 @@
             <a href="./meme_v2/index.php">meme_v2</a>
             <a href="./hangman/index.html">Hangman</a>
             <a href="./IQ.2/index.html">IQ_Test</a>
+            <a href="./signup/signup.html">Signup</a>
+           
         </div>
  Random number: <?php
 echo $_SESSION['RandomVal'] ?>
