@@ -3,7 +3,6 @@
 
     <head>
         <title>The Farmers Alminac, but not</title>
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts/googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         
@@ -12,7 +11,7 @@
         
     </head>
     
-   <header>  <div style="font-size:large;"> <h1>County info</h1></div> </header>
+   <header>  <div style="font-size:large;"> <h1 align= "center">County info</h1></div> </header>
 
 <body>
     
@@ -53,16 +52,28 @@
                         url: "usernameLookup.php",
                         data: { "username": $("#username").val()},
                       success: function(data,status) {
-                            console.log("username", $("#username").val());
-                            if (data == "Available") {
-                                $("#usernameValidation").html("Available!"); 
-                                $("#usernameValidation").css("color","green");
-                            }else {
-                                $("#usernameValidation").html("Username already taken!");         
-                                $("#usernameValidation").css("color","red");
-                            
+                           console.log("username", $("#username").val());
+                        if (data == "Null"){
+                            $("#usernameValidation").html("Please enter a username.");         
+                            $("#usernameValidation").css("color","red");
+                        }else if (data == "Unavailable") {
+                            $("#usernameValidation").html("Username already taken!.");         
+                            $("#usernameValidation").css("color","red");
+                        }else{
+                            $("#usernameValidation").html("Available!."); 
+                            $("#usernameValidation").css("color","green");
                             }
-                      }  
+                        }
+                    //         console.log("username", $("#username").val());
+                    //         if (data == "Available") {
+                    //             $("#usernameValidation").html("Available!"); 
+                    //             $("#usernameValidation").css("color","green");
+                    //         }else {
+                    //             $("#usernameValidation").html("Username already taken!");         
+                    //             $("#usernameValidation").css("color","red");
+                            
+                    //         }
+                    //   }  
                     });
                 });
             
