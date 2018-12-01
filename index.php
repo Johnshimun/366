@@ -9,7 +9,7 @@
             <a href="./homework/1assignment/index.php">assign1</a>
             <a href="./homework/Homework1/index.html">hmwk1</a>
             <a href="./homework/Slider/index.php">Carousel</a>
-            <a href="./labs/smartcart/scart/index.php">scart</a>
+            <a href="./scart/scart/index.php">scart</a>
             <a href="./meme_lab/meme.php">meme</a>
             <a href="./meme_v2/index.php">meme_v2</a>
             <a href="./hangman/index.html">Hangman</a>
