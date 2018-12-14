@@ -16,6 +16,7 @@
             <a href="./IQ.2/index.html">IQ_Test</a>
             <a href="./signup/signup.html">Signup</a>
             <a href="./pets1/index.php">pets</a>
+            <a href="./final/index.php">Final</a>
            
         </div>
  Random number: <?php
